@@ -26,9 +26,6 @@ public class Video extends Audio implements Riproducibile {
         this.luminosità = luminosità;
     }
 
-    public Video(){
-
-    }
 
     @Override
     public void play() {

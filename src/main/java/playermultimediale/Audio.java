@@ -1,17 +1,9 @@
 package playermultimediale;
 
-public class Audio implements Riproducibile {
-    private String titolo;
+public class Audio extends Files implements Riproducibile {
+
     private int durata;
     private int volume = 0;
-
-    public String getTitolo() {
-        return titolo;
-    }
-
-    public void setTitolo(String titolo) {
-        this.titolo = titolo;
-    }
 
     public int getDurata() {
         return durata;
@@ -30,14 +22,11 @@ public class Audio implements Riproducibile {
     }
 
     public Audio(String titolo, int durata, int volume) {
-        this.titolo = titolo;
+        super(titolo);
         this.durata = durata;
         this.volume = volume;
     }
 
-    public Audio() {
-
-    };
 
     public int alzaVolume(int volume) {
         this.volume += volume;
@@ -50,7 +39,7 @@ public class Audio implements Riproducibile {
 
     @Override
     public void play() {
-        System.out.println("L'audio: " + this.titolo + " è in riproduzione");
+        System.out.println("L'audio: " + this.getTitolo() + " è in riproduzione");
         String[] volume = new String[this.volume];
 //        String volumeLunghezza;
         for(int i = 0; i < this.volume; i++) {
@@ -60,7 +49,7 @@ public class Audio implements Riproducibile {
         String volumeLunghezza = String.join("", volume);
 
         for (int i = 0; i < this.durata; i++) {
-            System.out.println(this.titolo + volumeLunghezza);
+            System.out.println(this.getTitolo() + volumeLunghezza);
         }
     }
 }
